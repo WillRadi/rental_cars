@@ -1,3 +1,7 @@
-<% @manufacturer.each do |manufacturer| %>
-  <%= link_to manufacturer.name, manufacturer_path(manufacturer) %>
+<% if @manufacturer.any? %>
+  <% @manufacturer.each do |manufacturer| %>
+    <%= link_to manufacturer.name, manufacturer_path(manufacturer) %>
+  <% end %>
+<% else %>
+  <p>Nenhum fabricante cadastrado</p>
 <% end %>
