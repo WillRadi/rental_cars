@@ -1,10 +1,10 @@
 <h1>Fabricantes parceiros</h1>
 
-<% if @manufacturer.any? %>
+<% if @manufacturers.any? %>
   <ul>
-    <% @manufacturer.each do |manufacturer| %>
+    <% @manufacturers.each do |manufacturer| %>
       <li>
-        <%= link_to manufacturer.name, manufacturer_path(manufacturer) %>
+        <%= link_to manufacturer.name, manufacturer %>
       </li>
     <% end %>
   </ul>
