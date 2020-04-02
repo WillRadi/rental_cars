@@ -1,9 +1,15 @@
+<h1>Fabricantes parceiros</h1>
+
 <% if @manufacturer.any? %>
-  <% @manufacturer.each do |manufacturer| %>
-    <%= link_to manufacturer.name, manufacturer_path(manufacturer) %>
-  <% end %>
+  <ul>
+    <% @manufacturer.each do |manufacturer| %>
+      <li>
+        <%= link_to manufacturer.name, manufacturer_path(manufacturer) %>
+      </li>
+    <% end %>
+  </ul>
 <% else %>
-  <p>Nenhum fabricante cadastrado</p>
+  <h5>Nenhum fabricante cadastrado</h5>
 <% end %>
 
 <%= link_to 'Voltar', root_path %>
