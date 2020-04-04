@@ -8,5 +8,14 @@ class ManufacturersController < ApplicationController
   end
 
   def new
+    @manufacturer = Manufacturer.new
+  end
+
+  def create
+    @manufacturer = Manufacturer.new
+    @manufacturer.name = params[:manufacturer][:name]
+    @manufacturer.save
+
+    redirect_to @manufacturer
   end
 end
