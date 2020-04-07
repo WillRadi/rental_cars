@@ -1,7 +1,12 @@
+<h1>Cadastrar novo Fabricante<h1>
 <% if @manufacturer.errors.full_messages.any? %>
+  <ul>
   <% @manufacturer.errors.full_messages.each do |msg| %>
-    <%= msg %>
+    <li>
+      <%= msg %>
+    </li>
   <% end %>
+  <ul>
 <% end %>
 
 <%= form_for @manufacturer do |f| %>
