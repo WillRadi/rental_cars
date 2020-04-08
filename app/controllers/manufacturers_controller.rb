@@ -1,36 +1,31 @@
 class ManufacturersController < ApplicationController
+  before_action :set_manufacturer, only: [:show, :edit, :update]
   def index
     @manufacturers = Manufacturer.all
   end
 
-  def show
-    @manufacturer = Manufacturer.find(params[:id])
-  end
+  def show; end
 
   def new
     @manufacturer = Manufacturer.new
   end
 
+  def edit; end
+
   def create
-    @manufacturer = Manufacturer.new
-    @manufacturer.name = params[:manufacturer][:name]
+    @manufacturer = Manufacturer.new(manufacturer_params)
     if @manufacturer.save
       redirect_to @manufacturer
     else
-      render 'new'
+      render :new
     end
   end
 
-  def edit
-    @manufacturer = Manufacturer.find(params[:id])
-  end
-
   def update
-    @manufacturer = Manufacturer.find(params[:id])
     if @manufacturer.update(manufacturer_params)
       redirect_to @manufacturer
     else
-      render 'edit'
+      render :edit
     end
   end
 
@@ -38,5 +33,9 @@ class ManufacturersController < ApplicationController
 
   def manufacturer_params
     params.require(:manufacturer).permit(:name)
+  end
+
+  def set_manufacturer
+    @manufacturer = Manufacturer.find(params[:id])
   end
 end
