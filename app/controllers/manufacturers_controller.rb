@@ -1,5 +1,5 @@
 class ManufacturersController < ApplicationController
-  before_action :set_manufacturer, only: [:show, :edit, :update]
+  before_action :set_manufacturer, only: [:show, :edit, :update, :destroy]
   def index
     @manufacturers = Manufacturer.all
   end
@@ -14,19 +14,21 @@ class ManufacturersController < ApplicationController
 
   def create
     @manufacturer = Manufacturer.new(manufacturer_params)
-    if @manufacturer.save
-      redirect_to @manufacturer
-    else
-      render :new
-    end
+    return redirect_to @manufacturer if @manufacturer.save
+
+    render :new
   end
 
   def update
-    if @manufacturer.update(manufacturer_params)
-      redirect_to @manufacturer
-    else
-      render :edit
-    end
+    return redirect_to @manufacturer if @manufacturer.update(manufacturer_params)
+
+    render :edit
+  end
+
+  def destroy
+    @manufacturer.destroy
+
+    redirect_to manufacturers_path
   end
 
   private
