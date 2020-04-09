@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'Admin edits manufacturer' do
   scenario 'successfully' do
-    Manufacturer.create(name: 'Fiat')
+    m = Manufacturer.create(name: 'Fiat')
 
     visit root_path
     click_on 'Fabricantes'
@@ -11,10 +11,12 @@ feature 'Admin edits manufacturer' do
     fill_in 'Nome', with: 'Honda'
     click_on 'Enviar'
 
+    expect(current_path).to eq manufacturer_path(m.id)
     expect(page).to have_content('Honda')
+    expect(page).not_to have_content('Fiat')
   end
 
-  scenario 'successfully' do
+  scenario 'and name cant be blank' do
     Manufacturer.create(name: 'Fiat')
 
     visit root_path
@@ -27,7 +29,7 @@ feature 'Admin edits manufacturer' do
     expect(page).to have_content('Nome não pode ficar em branco')
   end
 
-  scenario 'successfully' do
+  scenario 'and name must be unique' do
     Manufacturer.create(name: 'Fiat')
     Manufacturer.create(name: 'Honda')
 
