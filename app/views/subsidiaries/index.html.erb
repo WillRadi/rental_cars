@@ -1,0 +1,8 @@
+<h1>Filiais</h1>
+<% if @subsidiaries.any? %>
+  <ul>
+    <%= render partial: :subsidiary, collection: @subsidiaries %>
+  </ul>
+<% else %>
+  <h5>Nenhum registro encontrado</h5>
+<% end %>
