@@ -19,7 +19,6 @@ feature 'Administrator register a new subsidiary' do
 
     click_on 'Enviar'
 
-    expect(current_path).to eq subsidiary_path(Subsidiary.last.id)
     expect(page).to have_content('São Paulo')
     expect(page).to have_content('CNPJ: 123456789')
     expect(page).to have_content('Endereço: Avenida Paulista, 123')
