@@ -1,3 +1,10 @@
+<% if subsidiary.errors.full_messages.any? %>
+  <ul>
+    <% subsidiary.errors.full_messages.each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
 <%= form_with model: subsidiary do |f| %>
   <%= f.label(:name, 'Nome') %>
   <%= f.text_field(:name) %>

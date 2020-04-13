@@ -45,4 +45,36 @@ feature 'Administrator register a new subsidiary' do
     expect(page).to have_content('Endereço: Rua T-rex, 1234')
     expect(page).not_to have_content('Endereço: Avenida Paulista, 123')
   end
+
+  scenario 'and cnpj cant be blank' do
+    visit root_path
+    click_on 'Filiais'
+    click_on 'Registrar nova filial'
+
+    fill_in 'Nome', with: 'São Paulo'
+    fill_in 'CNPJ', with: ''
+    fill_in 'Endereço', with: 'Avenida Paulista, 123'
+
+    click_on 'Enviar'
+
+    expect(Subsidiary.count).to eq 0
+    expect(page).to have_content('CNPJ não pode ficar em branco')
+  end
+
+  scenario 'and cnpj must be unique' do
+    Subsidiary.create!(name: 'São Paulo', cnpj: '123456789', address: 'Avenida Paulista, 123')
+
+    visit root_path
+    click_on 'Filiais'
+    click_on 'Registrar nova filial'
+
+    fill_in 'Nome', with: 'São Paulo'
+    fill_in 'CNPJ', with: '123456789'
+    fill_in 'Endereço', with: 'Avenida Paulista, 123'
+
+    click_on 'Enviar'
+
+    expect(Subsidiary.count).to eq 1
+    expect(page).to have_content('CNPJ já cadastrado')
+  end
 end
