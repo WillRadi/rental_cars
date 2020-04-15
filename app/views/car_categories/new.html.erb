@@ -1,3 +1,9 @@
 <h1>Cadastrar nova Categoria de veículo</h1>
 
+<% if @car_category.errors.any? %>
+    <div>
+        <p>Não foi possível cadastrar a nova categoria</p>
+    </div>
+<% end %>
+
 <%= render partial: 'form', locals: { car_category: @car_category } %>
