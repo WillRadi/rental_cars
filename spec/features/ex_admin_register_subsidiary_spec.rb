@@ -58,7 +58,7 @@ feature 'Administrator register a new subsidiary' do
     click_on 'Enviar'
 
     expect(Subsidiary.count).to eq 0
-    expect(page).to have_content('CNPJ não pode ficar em branco')
+    expect(page).to have_content('Cnpj não pode ficar em branco')
   end
 
   scenario 'and cnpj must be unique' do
@@ -75,6 +75,6 @@ feature 'Administrator register a new subsidiary' do
     click_on 'Enviar'
 
     expect(Subsidiary.count).to eq 1
-    expect(page).to have_content('CNPJ já cadastrado')
+    expect(page).to have_content('Cnpj já está em uso')
   end
 end
