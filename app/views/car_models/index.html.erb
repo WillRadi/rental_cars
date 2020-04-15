@@ -1,0 +1,16 @@
+<h1>Modelos de carros</h1>
+
+<table>
+  <tr>
+    <th>Modelo</th>
+    <th>Fabricante</th>
+    <th>Categoria</th>
+  </tr>
+  <%= @car_models.each do |car_model| %>
+    <tr>
+      <td><%= car_model.name %></td>
+      <td><%= car_model.manufacturer.name %></td>
+      <td><%= car_model.car_category.name %></td>
+    </tr>
+  <% end %>
+</table>
