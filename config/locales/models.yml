@@ -1,6 +1,9 @@
 pt-BR:
   activerecord:
     models:
+      car_model:
+        one: "Modelo de carro"
+        other: "Modelos de carro"
       car_category:
         one: "Categoria de Carro"
         other: "Categorias de Carros"
@@ -8,6 +11,13 @@ pt-BR:
         one: Fabricante
         other: Fabricantes
     attributes:
+      car_model:
+        name: "Nome"
+        manufacturer: "Fabricante"
+        car_category: "Categoria"
+        fuel_type: "Combustível"
+        motorization: "Motor"
+        year: "Ano"
       car_category:
         name: "Nome"
         daily_rate: "Diária"
