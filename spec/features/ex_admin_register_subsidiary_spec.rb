@@ -14,18 +14,18 @@ feature 'Administrator register a new subsidiary' do
     click_on 'Registrar nova filial'
 
     fill_in 'Nome', with: 'São Paulo'
-    fill_in 'CNPJ', with: '123456789'
+    fill_in 'CNPJ', with: '73.954.335/0001-12'
     fill_in 'Endereço', with: 'Avenida Paulista, 123'
 
     click_on 'Enviar'
 
     expect(page).to have_content('São Paulo')
-    expect(page).to have_content('CNPJ: 123456789')
+    expect(page).to have_content('CNPJ: 73.954.335/0001-12')
     expect(page).to have_content('Endereço: Avenida Paulista, 123')
   end
 
   scenario 'and edit a subsidiary' do
-    s = Subsidiary.create!(name: 'São Paulo', cnpj: '123456789', address: 'Avenida Paulista, 123')
+    s = Subsidiary.create!(name: 'São Paulo', cnpj: '73.954.335/0001-12', address: 'Avenida Paulista, 123')
 
     visit root_path
     click_on 'Filiais'
@@ -33,14 +33,14 @@ feature 'Administrator register a new subsidiary' do
     click_on 'Editar'
 
     fill_in 'Nome', with: 'Rio Branco'
-    fill_in 'CNPJ', with: '987654321'
+    fill_in 'CNPJ', with: '79.331.122/0001-10'
     fill_in 'Endereço', with: 'Rua T-rex, 1234'
     click_on 'Enviar'
 
     expect(current_path).to eq subsidiary_path(s.id)
     expect(page).to have_content('Rio Branco')
     expect(page).not_to have_content('São Paulo')
-    expect(page).to have_content('CNPJ: 987654321')
+    expect(page).to have_content('CNPJ: 79.331.122/0001-10')
     expect(page).not_to have_content('CNPJ: 123456789')
     expect(page).to have_content('Endereço: Rua T-rex, 1234')
     expect(page).not_to have_content('Endereço: Avenida Paulista, 123')
@@ -62,14 +62,14 @@ feature 'Administrator register a new subsidiary' do
   end
 
   scenario 'and cnpj must be unique' do
-    Subsidiary.create!(name: 'São Paulo', cnpj: '123456789', address: 'Avenida Paulista, 123')
+    Subsidiary.create!(name: 'São Paulo', cnpj: '79.331.122/0001-10', address: 'Avenida Paulista, 123')
 
     visit root_path
     click_on 'Filiais'
     click_on 'Registrar nova filial'
 
     fill_in 'Nome', with: 'São Paulo'
-    fill_in 'CNPJ', with: '123456789'
+    fill_in 'CNPJ', with: '79.331.122/0001-10'
     fill_in 'Endereço', with: 'Avenida Paulista, 123'
 
     click_on 'Enviar'

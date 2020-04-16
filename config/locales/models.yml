@@ -14,7 +14,9 @@ pt-BR:
       car_model:
         name: "Nome"
         manufacturer: "Fabricante"
+        manufacturer_id: "Fabricante"
         car_category: "Categoria"
+        car_category_id: "Categoria"
         fuel_type: "Combustível"
         motorization: "Motor"
         year: "Ano"

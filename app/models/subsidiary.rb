@@ -6,6 +6,8 @@ class Subsidiary < ApplicationRecord
   private
 
   def cnpj_must_be_valid
-    errors.add(:cnpj, 'CNPJ invalido') if CNPJ.valid?(:cnpj, strict: true)
+    return if CNPJ.valid?(self.cnpj, strict: true)
+
+    errors.add(:cnpj, 'CNPJ invalido')
   end
 end

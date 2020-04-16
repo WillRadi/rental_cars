@@ -5,13 +5,15 @@
     <tr>
       <th>Categoria</th>
       <th>Diária</th>
+      <th>Detalhes</th>
     </tr>
   </thead>
   <tbody>
   <% @car_categories.each do |category| %>
-    <tr>
-      <td><%= link_to "Categoria #{category.name}", category %></td>
+    <tr id="row_<%= category.id %>">
+      <td>Categoria <%= category.name %></td>
       <td><%= number_to_currency category.daily_rate %></td>
+      <td><%= link_to 'Detalhes', category %></td>
     </tr>
   <% end %>
   </tbody>

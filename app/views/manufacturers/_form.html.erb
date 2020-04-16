@@ -1,13 +1,4 @@
-<% if @manufacturer.errors.full_messages.any? %>
-  <ul>
-  <% @manufacturer.errors.full_messages.each do |msg| %>
-    <li>
-      <%= msg %>
-    </li>
-  <% end %>
-  <ul>
-<% end %>
-
+<%= render partial: 'errors', locals: { record: @manufacturer } %>
 <%= form_for @manufacturer do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
