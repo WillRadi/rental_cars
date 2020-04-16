@@ -17,6 +17,7 @@ feature 'Admin register new car model' do
     fill_in 'Motor', with: '1.0'
     fill_in 'Ano', with: '2020'
     select 'B', from: 'Categoria'
+    click_on 'Enviar'
 
     # Assert
     expect(page).to have_content('Onix')
