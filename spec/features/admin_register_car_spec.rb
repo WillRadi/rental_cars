@@ -52,4 +52,23 @@ feature 'Admin register a new car' do
 
     expect(page).to have_content('Placa já está em uso')
   end
+
+  scenario 'and mileage cant be lass than zero' do
+    manufacturer = Manufacturer.create!(name: 'Fiat')
+    category = CarCategory.create!(name: 'A', daily_rate: '30', car_insurance: '10', third_party_insurance: '20')
+    car_model = CarModel.create!(name: 'Uno', manufacturer: manufacturer, car_category: category, fuel_type: 'Flex', motorization: '1.0', year: '2020')
+    car = Car.create!(car_model: car_model, license_plate: 'AUK-3055', mileage: '1000', color: 'Branco')
+
+    visit root_path
+    click_on 'Frota de veículos'
+    click_on 'Cadastrar novo veículo'
+
+    select car_model.manufacturer_and_name, from: 'Modelo'
+    fill_in 'Placa', with: 'AUK-3055'
+    fill_in 'Cor', with: 'Amarelo'
+    fill_in 'Quilometragem', with: '-1'
+    click_on 'Enviar'
+
+    expect(page).to have_content('Quilometragem deve ser maior que 0')
+  end
 end
