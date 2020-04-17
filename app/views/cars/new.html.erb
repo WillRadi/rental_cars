@@ -1,13 +1,15 @@
 <h1>Cadastrar novo vaículo</h1>
 
+<%= render partial: 'errors', locals: { record: @car } %>
+
 <%= form_with model: @car, local: true do |f| %>
-  <%= f.label :car_model_id, 'Modelo' %>
+  <%= f.label :car_model_id %>
   <%= f.collection_select :car_model_id, @car_models, :id, :manufacturer_and_name %>
-  <%= f.label :license_plate, 'Placa' %>
+  <%= f.label :license_plate %>
   <%= f.text_field :license_plate %>
-  <%= f.label :color, 'Cor' %>
+  <%= f.label :color %>
   <%= f.text_field :color %>
-  <%= f.label :mileage, 'Quilometragem' %>
+  <%= f.label :mileage %>
   <%= f.number_field :mileage %>
   <%= f.submit 'Enviar' %>
 <% end %>

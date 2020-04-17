@@ -1,29 +1,38 @@
 pt-BR:
   activerecord:
     models:
+      car:
+        one: Carro
+        other: Carros
       car_model:
-        one: "Modelo de carro"
-        other: "Modelos de carro"
+        one: Modelo de carro
+        other: Modelos de carro
       car_category:
-        one: "Categoria de Carro"
-        other: "Categorias de Carros"
+        one: Categoria de Carro
+        other: Categorias de Carros
       manufacturer:
         one: Fabricante
         other: Fabricantes
     attributes:
+      car:
+        car_model: Modelo
+        car_model_id: Modelo
+        license_plate: Placa
+        color: Cor
+        mileage: Quilometragem
       car_model:
-        name: "Nome"
-        manufacturer: "Fabricante"
-        manufacturer_id: "Fabricante"
-        car_category: "Categoria"
-        car_category_id: "Categoria"
-        fuel_type: "Combustível"
-        motorization: "Motor"
-        year: "Ano"
+        name: Nome
+        manufacturer: Fabricante
+        manufacturer_id: Fabricante
+        car_category: Categoria
+        car_category_id: Categoria
+        fuel_type: Combustível
+        motorization: Motor
+        year: Ano
       car_category:
-        name: "Nome"
-        daily_rate: "Diária"
-        car_insurance: "Seguro"
-        third_party_insurance: "Seguro para terceiros"
+        name: Nome
+        daily_rate: Diária
+        car_insurance: Seguro
+        third_party_insurance: Seguro para terceiros
       manufacturer:
-        name: "Nome"
+        name: Nome

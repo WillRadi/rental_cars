@@ -20,4 +20,17 @@ feature 'Admin register a new car' do
     expect(page).to have_content('Amarelo')
     expect(page).to have_content('70000')
   end
+
+  scenario 'and fields cant be blank' do
+    visit root_path
+    click_on 'Frota de veículos'
+    click_on 'Cadastrar novo veículo'
+    click_on 'Enviar'
+
+    expect(Car.count).to eq 0
+    expect(page).to have_content('Modelo é obrigatório(a)')
+    expect(page).to have_content('Placa não pode ficar em branco')
+    expect(page).to have_content('Cor não pode ficar em branco')
+    expect(page).to have_content('Quilometragem não pode ficar em branco')
+  end
 end
