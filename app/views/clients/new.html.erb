@@ -1,0 +1,12 @@
+<h1>Crie sua conta<h1>
+
+<%= form_with model: @client, local: true do |f| %>
+  <%= f.label :name, 'Nome' %>
+  <%= f.text_field :name %>
+  <%= f.label :email, 'E-mail' %>
+  <%= f.text_field :email %>
+  <%= f.label :document, 'CPF' %>
+  <%= f.text_field :document %>
+  <%= f.submit 'Enviar' %>
+<% end %>
+
