@@ -8,11 +8,17 @@ pt-BR:
         one: Modelo de carro
         other: Modelos de carro
       car_category:
-        one: Categoria de Carro
-        other: Categorias de Carros
+        one: Categoria de carro
+        other: Categorias de carros
       manufacturer:
         one: Fabricante
         other: Fabricantes
+      rental:
+        one: Locação
+        other: Locações
+      subsidiary:
+        one: Filial
+        other: Filiais
     attributes:
       car:
         car_model: Modelo

@@ -19,8 +19,7 @@ feature 'Admin view all car categories' do
     visit root_path
     click_on 'Categorias de Carros'
 
-    expect(current_path).to eq car_categories_path
-    expect(page).to have_content('Nenhuma categoria cadastrada')
+    expect(page).to have_content('Nenhum(a) Categoria de carro encontrado(a)')
   end
 
   scenario 'and access show page through details link' do

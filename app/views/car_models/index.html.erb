@@ -2,17 +2,21 @@
 
 <%= link_to 'Cadastrar novo modelo', new_car_model_path %>
 
-<table>
-  <tr>
-    <th>Modelo</th>
-    <th>Fabricante</th>
-    <th>Categoria</th>
-  </tr>
-  <%= @car_models.each do |car_model| %>
+<% if @car_models.any? %>
+  <table>
     <tr>
-      <td><%= car_model.name %></td>
-      <td><%= car_model.manufacturer.name %></td>
-      <td><%= car_model.car_category.name %></td>
+      <th>Modelo</th>
+      <th>Fabricante</th>
+      <th>Categoria</th>
     </tr>
-  <% end %>
-</table>
+    <%= @car_models.each do |car_model| %>
+      <tr>
+        <td><%= car_model.name %></td>
+        <td><%= car_model.manufacturer.name %></td>
+        <td><%= car_model.car_category.name %></td>
+      </tr>
+    <% end %>
+  </table>
+<% else %>
+  <%= render partial: 'blank', locals: { object: @car_models } %>
+<% end %>

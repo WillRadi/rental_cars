@@ -16,6 +16,8 @@ class CarsController < ApplicationController
     render :new
   end
 
+  # SE CLICAR NO SHOW A PARTIR DE OUTRO LUGAR... (VIA GET) o que acontece com a variável @car
+  # ou seja, o params pega parâmetros de get e post?
   def show
     @car = Car.find(params[:id])
   end

@@ -15,6 +15,10 @@ feature 'Admim view rental' do
     expect(page).to have_content(/A/)
   end
 
-  xscenario 'and dont have any' do
+  scenario 'and dont have any' do
+    visit root_path
+    click_on 'Locações'
+
+    expect(page).to have_content('Nenhum(a) Locação encontrado(a)')
   end
 end

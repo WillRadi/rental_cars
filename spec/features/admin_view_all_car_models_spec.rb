@@ -23,4 +23,11 @@ feature 'Admin view all car models' do
     expect(page).to have_content('Chevrolet')
     expect(page).to have_content('B')
   end
+
+  scenario 'and have no car model created' do
+    visit root_path
+    click_on 'Modelos'
+
+    expect(page).to have_content('Nenhum(a) Modelo de carro encontrado(a)')
+  end
 end

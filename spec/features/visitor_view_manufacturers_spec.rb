@@ -28,7 +28,7 @@ feature 'Visitor view manufacturers' do
     visit root_path
     click_on 'Fabricantes'
 
-    expect(page).to have_content('Nenhum fabricante cadastrado')
+    expect(page).to have_content('Nenhum(a) Fabricante encontrado(a)')
   end
 
   scenario 'and return to home page' do

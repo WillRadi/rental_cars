@@ -10,7 +10,7 @@ feature 'Admin deletes manufacturer' do
     click_on 'Apagar fabricante'
 
     expect(current_path).to eq manufacturers_path
-    expect(page).to have_content('Nenhum fabricante cadastrado')
+    expect(page).to have_content('Nenhum(a) Fabricante encontrado(a)')
   end
 
   scenario 'and keep anothers' do

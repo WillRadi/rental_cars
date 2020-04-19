@@ -2,6 +2,8 @@
 
 <%= link_to 'Registrar locação', new_rental_path %>
 
+<%= render partial: 'blank', locals: { object: @rentals } %>
+
 <% @rentals.each do |rental| %>
   <div>
     <p><strong>Data de início:</strong> <%= I18n.l rental.start_date %></p>

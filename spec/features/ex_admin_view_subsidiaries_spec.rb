@@ -17,7 +17,7 @@ feature 'Administrator view subsidiaries' do
     click_on 'Filiais'
 
     expect(Subsidiary.count).to eq 0
-    expect(page).to have_content('Nenhum registro encontrado')
+    expect(page).to have_content('Nenhum(a) Filial encontrado(a)')
   end
 
   scenario 'and view details' do

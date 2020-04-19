@@ -9,7 +9,7 @@
     <% end %>
   </ul>
 <% else %>
-  <h5>Nenhum fabricante cadastrado</h5>
+  <%= render partial: 'blank', locals: { object: @manufacturers } %>
 <% end %>
 
 <%= link_to 'Registrar novo fabricante', new_manufacturer_path %>

@@ -4,7 +4,7 @@
     <%= render partial: :subsidiary, collection: @subsidiaries %>
   </ul>
 <% else %>
-  <h5>Nenhum registro encontrado</h5>
+  <%= render partial: 'blank', locals: { object: @subsidiaries } %>
 <% end %>
 
 <%= link_to 'Registrar nova filial', new_subsidiary_path %>
