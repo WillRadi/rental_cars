@@ -1,7 +1,7 @@
 class Client < ApplicationRecord
-
-  private
+  has_many :rentals
 
   def identification
+    "#{name} - #{document}"
   end
 end

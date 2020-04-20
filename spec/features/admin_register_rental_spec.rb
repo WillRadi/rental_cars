@@ -11,12 +11,12 @@ feature 'Admin register rental' do
     fill_in 'Data inicial', with: '16/04/2030'
     fill_in 'Data final', with: '18/04/2030'
     select car_category.name, from: 'Categoria'
-    select client.name, from: 'Cliente'
+    select client.identification, from: 'Cliente'
     click_on 'Enviar'
 
     expect(page).to have_content('16/04/2030')
     expect(page).to have_content('18/04/2030')
-    expect(page).to have_content('Fulano da Silva')
+    expect(page).to have_content(client.identification)
     expect(page).to have_content(/A/)
   end
 end
