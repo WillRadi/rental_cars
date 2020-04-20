@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'Admin register rental' do
   scenario 'successfully' do
     car_category = CarCategory.create!(name: 'A', daily_rate: '100', car_insurance: '20', third_party_insurance: '20')
-    client = Client.create!(name: 'Fulano da Silva', document: '12345678', email: 'teste@mail.com')
+    client = Client.create!(name: 'Fulano da Silva', document: '363.550.460-20', email: 'teste@mail.com')
 
     visit root_path
     click_on 'Locações'
