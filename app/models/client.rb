@@ -15,7 +15,7 @@ class Client < ApplicationRecord
   end
 
   def email_must_be_valid
-    errors.add(:email, 'e-mail inválido') unless email?(self.email)
+    errors.add(:email, 'Email inválido') unless email?(self.email)
   end
 
   def email?(str)
