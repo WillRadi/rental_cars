@@ -48,11 +48,11 @@ RSpec.describe Car, type: :model do
     expect(car.errors[:mileage]).to include 'deve ser maior que 0'
   end
 
-  xit 'should validate integer' do
+  it 'should validate integer' do
     car = Car.new(mileage: 0.5)
     car.valid?
 
-    expect(car.errors[:mileage]).to include 'deve ser maior que 0'
+    expect(car.errors[:mileage]).to include 'não é um número inteiro'
   end
 
   it 'mileage should be valid' do

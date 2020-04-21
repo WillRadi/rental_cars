@@ -5,5 +5,5 @@ class Car < ApplicationRecord
   validates :license_plate, uniqueness: true
   validates :color, presence: true
   validates :mileage, presence: true
-  validates :mileage, numericality: { greater_than: 0 }
+  validates :mileage, numericality: { greater_than: 0, only_integer: true }
 end
