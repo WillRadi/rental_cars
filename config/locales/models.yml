@@ -19,6 +19,9 @@ pt-BR:
       subsidiary:
         one: Filial
         other: Filiais
+      user:
+        one: Usuário
+        other: Usuários
     attributes:
       car:
         car_model: Modelo
@@ -42,3 +45,6 @@ pt-BR:
         third_party_insurance: Seguro para terceiros
       manufacturer:
         name: Nome
+      user:
+        email: Email
+        password: Senha

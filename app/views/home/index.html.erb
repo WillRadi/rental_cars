@@ -1,6 +1,12 @@
+<%= flash[:notice] %>
+
 <h1>Rental Cars</h1>
 
 <h3>Bem vindo ao sistema de gestão de locação</h3>
+
+<ul>
+  <li><%= link_to 'Entrar', new_user_session_path %></li>
+</ul>
 
 <ul>
   <li><%= link_to 'Criar conta', new_client_path %></li>
