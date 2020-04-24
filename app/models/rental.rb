@@ -9,24 +9,24 @@ class Rental < ApplicationRecord
   private
 
   def end_date_must_be_greater_than_start_date
-    errors.add(:end_date, 'Data final deve ser maior do que data inicial') if start_is_greater_than_end?(self.start_date, self.end_date)
+    errors.add(:end_date, 'Data final deve ser maior do que data inicial') if start_is_greater_than_end?
   end
 
   def start_date_is_not_past
-    errors.add(:start_date, 'Data inicial não pode ser menor do que o dia corrente') if self.start_date.past?
+    errors.add(:start_date, 'Data inicial não pode ser menor do que o dia corrente') if start_date.past?
   end
 
   def end_date_is_not_past
-    errors.add(:end_date, 'Data final deve ser maior do que o dia corrente') if past_or_today?(self.end_date)
+    errors.add(:end_date, 'Data final deve ser maior do que o dia corrente') if past_or_today?
   end
 
-  def start_is_greater_than_end?(start_date, end_date)
+  def start_is_greater_than_end?
     return if start_date.blank? || end_date.blank?
 
     start_date >= end_date
   end
 
-  def past_or_today?(date)
+  def past_or_today?
     date.today? || date.past?
   end
 end

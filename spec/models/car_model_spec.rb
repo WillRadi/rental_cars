@@ -8,17 +8,17 @@ RSpec.describe CarModel, type: :model do
     expect(car_model.errors[:name]).to include 'não pode ficar em branco'
   end
 
-  xit 'should validate manufacturer presence' do
-    car_model = CarModel.new(manufacturer_id: '')
+  it 'should validate manufacturer presence' do
+    car_model = CarModel.new(manufacturer: nil)
     car_model.valid?
 
-    expect(car_model.errors[:manufacturer_id]).to include 'já está em uso'
+    expect(car_model.errors[:manufacturer]).to include 'é obrigatório(a)'
   end
 
-  xit 'should validate car category presence' do
-    car_model = CarModel.new(car_category_id: '')
+  it 'should validate car category presence' do
+    car_model = CarModel.new(car_category: nil)
     car_model.valid?
 
-    expect(car_model.errors[:car_category_id]).to include 'já está em uso'
+    expect(car_model.errors[:car_category]).to include 'é obrigatório(a)'
   end
 end

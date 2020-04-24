@@ -5,28 +5,28 @@ RSpec.describe Client, type: :model do
     client = Client.new(email: 'teste')
     client.valid?
 
-    expect(client.errors[:email]).to include 'Email inválido'
+    expect(client.errors[:email]).to include 'não é válido'
   end
 
   it 'should validate email without at sign' do
     client = Client.new(email: 'teste.com')
     client.valid?
 
-    expect(client.errors[:email]).to include 'Email inválido'
+    expect(client.errors[:email]).to include 'não é válido'
   end
 
   it 'should validate email without . smt' do
     client = Client.new(email: 'teste@gmail')
     client.valid?
 
-    expect(client.errors[:email]).to include 'Email inválido'
+    expect(client.errors[:email]).to include 'não é válido'
   end
 
   it 'should validate email without prefix' do
     client = Client.new(email: '@gmail.com')
     client.valid?
 
-    expect(client.errors[:email]).to include 'Email inválido'
+    expect(client.errors[:email]).to include 'não é válido'
   end
 
   it 'should email be valid' do
