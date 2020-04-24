@@ -17,7 +17,7 @@ class Rental < ApplicationRecord
   end
 
   def end_date_is_not_past
-    errors.add(:end_date, 'Data final deve ser maior do que o dia corrente') if past_or_today?
+    errors.add(:end_date, 'Data final deve ser maior do que o dia corrente') if end_date_past_or_today?
   end
 
   def start_is_greater_than_end?
@@ -26,7 +26,7 @@ class Rental < ApplicationRecord
     start_date >= end_date
   end
 
-  def past_or_today?
-    date.today? || date.past?
+  def end_date_past_or_today?
+    end_date.today? || end_date.past?
   end
 end

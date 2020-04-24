@@ -11,9 +11,12 @@ class RentalsController < ApplicationController
 
   def create
     @rental = Rental.new(rental_params)
-    return redirect_to rentals_path if @rental.save
-
-    render :new
+    if @rental.save
+      flash[:success] = 'Locação cadastrada com sucesso'
+      return redirect_to rentals_path
+    else
+      render :new
+    end
   end
 
   private

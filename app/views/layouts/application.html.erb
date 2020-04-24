@@ -10,6 +10,10 @@
   </head>
 
   <body>
+    <% #TODO: ver na doc do Devise como usaros helpers notice e alert %>
+    <%= flash[:success] %>
+    <%= flash[:notice] %>
+    <%= flash[:alert] %>
     <%= yield %>
   </body>
 </html>

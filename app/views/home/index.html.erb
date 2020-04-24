@@ -1,11 +1,13 @@
-<%= flash[:notice] %>
-
 <h1>Rental Cars</h1>
 
 <h3>Bem vindo ao sistema de gestão de locação</h3>
 
 <ul>
-  <li><%= link_to 'Entrar', new_user_session_path %></li>
+  <% if user_signed_in? %>
+    <li><%= link_to 'Logout', new_user_session_path %></li>
+  <% else %>
+    <li><%= link_to 'Entrar', new_user_session_path %></li>
+  <% end %>
 </ul>
 
 <ul>

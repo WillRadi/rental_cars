@@ -14,6 +14,7 @@ feature 'Admin register rental' do
     select client.identification, from: 'Cliente'
     click_on 'Enviar'
 
+    expect(page).to have_content('Locação cadastrada com sucesso')
     expect(page).to have_content('16/04/2030')
     expect(page).to have_content('18/04/2030')
     expect(page).to have_content(client.identification)
