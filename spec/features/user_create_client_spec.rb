@@ -2,8 +2,10 @@ require 'rails_helper'
 
 feature 'User create a client' do
   scenario 'successfully' do
+    user = User.create!(email: 'teste@mail.com', password: '123456')
     client = Client.create!(name: 'William', email: 'teste@mail.com', document: '447.106.880-60')
 
+    login_as user, scope: :user
     visit root_path
     click_on 'Criar conta'
     fill_in 'Nome', with: client.name

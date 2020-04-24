@@ -2,10 +2,12 @@ require 'rails_helper'
 
 feature 'Admin register a new car' do
   scenario 'successfully' do
+    user = User.create!(email: 'teste@mail.com', password: '123456')
     manufacturer = Manufacturer.create!(name: 'Fiat')
     category = CarCategory.create!(name: 'A', daily_rate: '30', car_insurance: '10', third_party_insurance: '20')
     car_model = CarModel.create!(name: 'Uno', manufacturer: manufacturer, car_category: category, fuel_type: 'Flex', motorization: '1.0', year: '2020')
 
+    login_as user, scope: :user
     visit root_path
     click_on 'Frota de veículos'
     click_on 'Cadastrar novo veículo'
@@ -22,6 +24,9 @@ feature 'Admin register a new car' do
   end
 
   scenario 'and fields cant be blank' do
+    user = User.create!(email: 'teste@mail.com', password: '123456')
+
+    login_as user, scope: :user
     visit root_path
     click_on 'Frota de veículos'
     click_on 'Cadastrar novo veículo'
@@ -35,11 +40,13 @@ feature 'Admin register a new car' do
   end
 
   scenario 'and license_plate is unique' do
+    user = User.create!(email: 'teste@mail.com', password: '123456')
     manufacturer = Manufacturer.create!(name: 'Fiat')
     category = CarCategory.create!(name: 'A', daily_rate: '30', car_insurance: '10', third_party_insurance: '20')
     car_model = CarModel.create!(name: 'Uno', manufacturer: manufacturer, car_category: category, fuel_type: 'Flex', motorization: '1.0', year: '2020')
     car = Car.create!(car_model: car_model, license_plate: 'AUK-3055', mileage: '1000', color: 'Branco')
 
+    login_as user, scope: :user
     visit root_path
     click_on 'Frota de veículos'
     click_on 'Cadastrar novo veículo'
@@ -54,11 +61,13 @@ feature 'Admin register a new car' do
   end
 
   scenario 'and mileage cant be lass than zero' do
+    user = User.create!(email: 'teste@mail.com', password: '123456')
     manufacturer = Manufacturer.create!(name: 'Fiat')
     category = CarCategory.create!(name: 'A', daily_rate: '30', car_insurance: '10', third_party_insurance: '20')
     car_model = CarModel.create!(name: 'Uno', manufacturer: manufacturer, car_category: category, fuel_type: 'Flex', motorization: '1.0', year: '2020')
     car = Car.create!(car_model: car_model, license_plate: 'AUK-3055', mileage: '1000', color: 'Branco')
 
+    login_as user, scope: :user
     visit root_path
     click_on 'Frota de veículos'
     click_on 'Cadastrar novo veículo'

@@ -2,6 +2,9 @@ require 'rails_helper'
 
 feature 'Administrator register a new subsidiary' do
   scenario 'access from index page' do
+    user = User.create!(email: 'teste@mail.com', password: '123456')
+
+    login_as user, scope: :user
     visit root_path
     click_on 'Filiais'
 
@@ -9,6 +12,9 @@ feature 'Administrator register a new subsidiary' do
   end
 
   scenario 'successfully' do
+    user = User.create!(email: 'teste@mail.com', password: '123456')
+
+    login_as user, scope: :user
     visit root_path
     click_on 'Filiais'
     click_on 'Registrar nova filial'
@@ -25,8 +31,10 @@ feature 'Administrator register a new subsidiary' do
   end
 
   scenario 'and edit a subsidiary' do
+    user = User.create!(email: 'teste@mail.com', password: '123456')
     s = Subsidiary.create!(name: 'São Paulo', cnpj: '73.954.335/0001-12', address: 'Avenida Paulista, 123')
 
+    login_as user, scope: :user
     visit root_path
     click_on 'Filiais'
     click_on 'São Paulo'
@@ -47,6 +55,9 @@ feature 'Administrator register a new subsidiary' do
   end
 
   scenario 'and cnpj cant be blank' do
+    user = User.create!(email: 'teste@mail.com', password: '123456')
+
+    login_as user, scope: :user
     visit root_path
     click_on 'Filiais'
     click_on 'Registrar nova filial'
@@ -62,8 +73,10 @@ feature 'Administrator register a new subsidiary' do
   end
 
   scenario 'and cnpj must be unique' do
+    user = User.create!(email: 'teste@mail.com', password: '123456')
     Subsidiary.create!(name: 'São Paulo', cnpj: '79.331.122/0001-10', address: 'Avenida Paulista, 123')
 
+    login_as user, scope: :user
     visit root_path
     click_on 'Filiais'
     click_on 'Registrar nova filial'

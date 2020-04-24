@@ -2,9 +2,11 @@ require 'rails_helper'
 
 feature 'Admin view all car categories' do
   scenario 'successfully' do
+    user = User.create!(email: 'teste@mail.com', password: '123456')
     c1 = CarCategory.create!(name: 'A', daily_rate: '100', car_insurance: '20', third_party_insurance: '20')
     c2 = CarCategory.create!(name: 'B', daily_rate: '200', car_insurance: '30', third_party_insurance: '25')
 
+login_as user, scope: :user
     visit root_path
     click_on 'Categorias de Carros'
 
@@ -16,6 +18,9 @@ feature 'Admin view all car categories' do
   end
 
   scenario 'with no categories' do
+    user = User.create!(email: 'teste@mail.com', password: '123456')
+
+    login_as user, scope: :user
     visit root_path
     click_on 'Categorias de Carros'
 
@@ -23,8 +28,10 @@ feature 'Admin view all car categories' do
   end
 
   scenario 'and access show page through details link' do
+    user = User.create!(email: 'teste@mail.com', password: '123456')
     c1 = CarCategory.create!(name: 'A', daily_rate: '100', car_insurance: '20', third_party_insurance: '20')
 
+    login_as user, scope: :user
     visit root_path
     click_on 'Categorias de Carros'
     within("#row_#{c1.id}") do

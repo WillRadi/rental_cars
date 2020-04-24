@@ -2,9 +2,11 @@ require 'rails_helper'
 
 feature 'Administrator view subsidiaries' do
   scenario 'successfully' do
+    user = User.create!(email: 'teste@mail.com', password: '123456')
     Subsidiary.create!(name: 'São Paulo', cnpj: '03.088.973/0001-12', address: 'Avenida Paulista, 123')
     Subsidiary.create!(name: 'Curitiba', cnpj: '02.055.184/0001-12', address: 'Avenida Mal. Floriano Peixoto, 123')
 
+    login_as user, scope: :user
     visit root_path
     click_on 'Filiais'
 
@@ -13,6 +15,9 @@ feature 'Administrator view subsidiaries' do
   end
 
   scenario 'and there is no subsidiaries' do
+    user = User.create!(email: 'teste@mail.com', password: '123456')
+
+    login_as user, scope: :user
     visit root_path
     click_on 'Filiais'
 
@@ -21,9 +26,11 @@ feature 'Administrator view subsidiaries' do
   end
 
   scenario 'and view details' do
+    user = User.create!(email: 'teste@mail.com', password: '123456')
     sp = Subsidiary.create!(name: 'São Paulo', cnpj: '03.088.973/0001-12', address: 'Avenida Paulista, 123')
     ctba = Subsidiary.create!(name: 'Curitiba', cnpj: '02.055.184/0001-12', address: 'Avenida Mal. Floriano Peixoto, 123')
 
+    login_as user, scope: :user
     visit root_path
     click_on 'Filiais'
     click_on 'São Paulo'

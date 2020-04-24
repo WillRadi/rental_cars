@@ -2,7 +2,9 @@ require 'rails_helper'
 
 feature 'Admin register car categories' do
   scenario 'successfully' do
+    user = User.create!(email: 'teste@mail.com', password: '123456')
 
+    login_as user, scope: :user
     visit root_path
     click_on 'Categorias de Carros'
     click_on 'Registrar nova categoria de carro'
@@ -19,7 +21,9 @@ feature 'Admin register car categories' do
   end
 
   scenario 'must fill in all fields' do
+    user = User.create!(email: 'teste@mail.com', password: '123456')
 
+    login_as user, scope: :user
     visit root_path
     click_on 'Categorias de Carros'
     click_on 'Registrar nova categoria de carro'

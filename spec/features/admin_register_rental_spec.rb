@@ -2,9 +2,11 @@ require 'rails_helper'
 
 feature 'Admin register rental' do
   scenario 'successfully' do
+    user = User.create!(email: 'teste@mail.com', password: '123456')
     car_category = CarCategory.create!(name: 'A', daily_rate: '100', car_insurance: '20', third_party_insurance: '20')
     client = Client.create!(name: 'Fulano da Silva', document: '363.550.460-20', email: 'teste@mail.com')
 
+    login_as user, scope: :user
     visit root_path
     click_on 'Locações'
     click_on 'Registrar locação'
