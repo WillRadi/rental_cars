@@ -20,7 +20,7 @@ class RentalsController < ApplicationController
   end
 
   def search
-    @rentals = Rental.where(params[:q])
+    @rentals = Rental.where(code: params[:q])
     render :index
   end
 
