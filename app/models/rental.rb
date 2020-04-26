@@ -6,6 +6,8 @@ class Rental < ApplicationRecord
   validate :start_date_is_not_past
   validate :end_date_is_not_past
 
+  before_create :create_code
+
   private
 
   def end_date_must_be_greater_than_start_date
@@ -28,5 +30,9 @@ class Rental < ApplicationRecord
 
   def end_date_past_or_today?
     end_date.today? || end_date.past?
+  end
+
+  def create_code
+    self.code = SecureRandom.alphanumeric(6).upcase
   end
 end

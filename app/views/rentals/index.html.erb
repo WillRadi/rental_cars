@@ -2,12 +2,19 @@
 
 <h1>Locações</h1>
 
+<%= form_with url: search_rentals_path, local: true, method: :get do |f| %>
+  <%= f.label :q, 'Busca' %>
+  <%= f.search_field :q %>
+  <%= f.submit 'Pesquisar' %>
+<% end %>
+
 <%= link_to 'Registrar locação', new_rental_path %>
 
-<%= render partial: 'blank', locals: { object: @rentals } %>
+<%# <%= render partial: 'blank', locals: { object: @rentals } %> %>
 
 <% @rentals.each do |rental| %>
   <div>
+    <p><strong>Código</strong> <%= rental.code %></p>
     <p><strong>Data de início:</strong> <%= I18n.l rental.start_date %></p>
     <p><strong>Data final:</strong> <%= I18n.l rental.end_date %></p>
     <p><strong>Cliente:</strong> <%= rental.client.identification %></p>
