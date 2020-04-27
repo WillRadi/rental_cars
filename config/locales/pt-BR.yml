@@ -144,6 +144,7 @@ pt-BR:
       header:
         one: 'Não foi possível gravar %{model}: 1 erro'
         other: 'Não foi possível gravar %{model}: %{count} erros'
+    blank_model: Nenhum(a) %{model} encontrado(a)
   helpers:
     select:
       prompt: Por favor selecione
@@ -223,3 +224,4 @@ pt-BR:
     pm: ''
   back: Voltar
   send_form: Enviar
+
