@@ -1,13 +1,13 @@
-<h1>Modelos de carros</h1>
+<h1><%= t('.title') %></h1>
 
-<%= link_to 'Cadastrar novo modelo', new_car_model_path %>
+<%= link_to t('.register_new'), new_car_model_path %>
 
 <% if @car_models.any? %>
   <table>
     <tr>
-      <th>Modelo</th>
-      <th>Fabricante</th>
-      <th>Categoria</th>
+      <th><%= t('.name') %></th>
+      <th><%= t(:manufacturer, scope: %i[activerecord attributes car_model]) %></th>
+      <th><%= t(:car_category, scope: %i[activerecord attributes car_model]) %></th>
     </tr>
     <%= @car_models.each do |car_model| %>
       <tr>

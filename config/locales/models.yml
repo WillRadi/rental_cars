@@ -58,3 +58,10 @@ pt-BR:
       title: Cadastrar nova Categoria de veículo
       errors:
         can_not_create: Não foi possível cadastrar a nova categoria
+  car_models:
+    index:
+      title: Modelos de carros
+      register_new: Cadastrar novo modelo
+      name: Modelo
+    new:
+      title: Cadastrar novo modelo de carro

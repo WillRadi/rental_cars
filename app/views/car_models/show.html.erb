@@ -1,9 +1,9 @@
 <h1><%= @car_model.name %></h1>
 
 <dl>
-  <dt>Fabricante: </dt><dd><%= @car_model.manufacturer.name %></dd>
-  <dt>Combustível: </dt><dd><%= @car_model.fuel_type %></dd>
-  <dt>Motor: </dt><dd><%= @car_model.motorization %></dd>
-  <dt>Ano: </dt><dd><%= @car_model.year %></dd>
-  <dt>Categoria: </dt><dd><%= @car_model.car_category.name %></dd>
+  <dt><%= t(:manufacturer, scope: %i[activerecord attributes car_model]) %>: </dt><dd><%= @car_model.manufacturer.name %></dd>
+  <dt><%= t(:fuel_type, scope: %i[activerecord attributes car_model]) %>: </dt><dd><%= @car_model.fuel_type %></dd>
+  <dt><%= t(:motorization, scope: %i[activerecord attributes car_model]) %>: </dt><dd><%= @car_model.motorization %></dd>
+  <dt><%= t(:year, scope: %i[activerecord attributes car_model]) %>: </dt><dd><%= @car_model.year %></dd>
+  <dt><%= t(:car_category, scope: %i[activerecord attributes car_model]) %>: </dt><dd><%= @car_model.car_category.name %></dd>
 </dl>
