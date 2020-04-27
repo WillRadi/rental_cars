@@ -51,6 +51,7 @@ pt-BR:
         password: Senha
   car_categories:
     index:
+      title: Categorias de Carros
       details: Detalhes
       register_new: Registrar nova categoria de carro
     new:

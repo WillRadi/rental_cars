@@ -1,9 +1,9 @@
-<h1>Categorias de Carros</h1>
+<h1><%= t('.title') %></h1>
 <% if @car_categories.any? %>
 <table>
   <thead>
     <tr>
-      <th><%= t(:category, scope: %i[activerecord attributes car_category]) %></th>
+      <th><%= t(:category, scope: %i[activerecord attributes car_category], name: nil) %></th>
       <th><%= t(:daily_rate, scope: %i[activerecord attributes car_category]) %></th>
       <th><%= t('.details') %></th>
     </tr>
