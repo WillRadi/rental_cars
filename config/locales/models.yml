@@ -43,8 +43,17 @@ pt-BR:
         daily_rate: Diária
         car_insurance: Seguro
         third_party_insurance: Seguro para terceiros
+        category: Categoria %{name}
       manufacturer:
         name: Nome
       user:
         email: Email
         password: Senha
+  car_categories:
+    index:
+      details: Detalhes
+      register_new: Registrar nova categoria de carro
+    new:
+      title: Cadastrar nova Categoria de veículo
+      errors:
+        can_not_create: Não foi possível cadastrar a nova categoria
