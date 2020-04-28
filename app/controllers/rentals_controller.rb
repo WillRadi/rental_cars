@@ -5,7 +5,7 @@ class RentalsController < ApplicationController
 
   def new
     @rental = Rental.new
-    @clients = Client.all
+    @customers = Customer.all
     @car_categories = CarCategory.all
   end
 
@@ -27,6 +27,6 @@ class RentalsController < ApplicationController
   private
 
   def rental_params
-    params.require(:rental).permit(:start_date, :end_date, :client_id, :car_category_id)
+    params.require(:rental).permit(:start_date, :end_date, :customer_id, :car_category_id)
   end
 end

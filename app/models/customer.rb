@@ -1,4 +1,4 @@
-class Client < ApplicationRecord
+class Customer < ApplicationRecord
   has_many :rentals
 
   validate :cpf_must_be_valid

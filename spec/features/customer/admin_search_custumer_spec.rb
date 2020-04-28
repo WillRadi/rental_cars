@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature 'Admin search for customer' do
-  scenario 'from partial name' do
+  xscenario 'from partial name' do
     user = User.create!(email: 'test@test.com', password: '12345678')
     Customer.create!(name: 'Ana Silva', email: 'ana@email.com', document: '18885510205')
     Customer.create!(name: 'André Silva', email: 'andre@email.com', document: '32336954540')
@@ -19,7 +19,7 @@ feature 'Admin search for customer' do
     expect(page).to_not have_content 'ana@email.com'
   end
 
-  scenario 'from partial name with multiple results' do
+  xscenario 'from partial name with multiple results' do
     user = User.create!(email: 'test@test.com', password: '12345678')
     Customer.create!(name: 'Ana Silva', email: 'ana@email.com', document: '18885510205')
     Customer.create!(name: 'André Silva', email: 'andre@email.com', document: '32336954540')
@@ -42,7 +42,7 @@ feature 'Admin search for customer' do
     expect(page).not_to have_content 'carlos@email.com'
   end
 
-  scenario 'from CPF' do
+  xscenario 'from CPF' do
     user = User.create!(email: 'test@test.com', password: '12345678')
     Customer.create!(name: 'Ana Silva', email: 'ana@email.com', document: '18885510205')
     Customer.create!(name: 'André Silva', email: 'andre@email.com', document: '32336954540')
