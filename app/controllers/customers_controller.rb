@@ -1,4 +1,8 @@
 class CustomersController < ApplicationController
+  def index
+    @customers = Customer.all
+  end
+
   def new
     @customer = Customer.new
   end
@@ -12,6 +16,11 @@ class CustomersController < ApplicationController
 
   def show
     @customer = Customer.find(params[:id])
+  end
+
+  def search
+    @word = params[:q]
+    @customers = Customer.where("name LIKE ?", "%#{@word}%").or(Customer.where(document: @word))
   end
 
   private

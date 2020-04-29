@@ -10,6 +10,9 @@ pt-BR:
       car_category:
         one: Categoria de carro
         other: Categorias de carros
+      customer:
+        one: Cliente
+        other: Clientes
       manufacturer:
         one: Fabricante
         other: Fabricantes
@@ -44,6 +47,10 @@ pt-BR:
         car_insurance: Seguro
         third_party_insurance: Seguro para terceiros
         category: Categoria %{name}
+      customer:
+        name: Nome
+        email: Email
+        document: CPF
       manufacturer:
         name: Nome
       user:
@@ -65,3 +72,11 @@ pt-BR:
       name: Modelo
     new:
       title: Cadastrar novo modelo de carro
+  customers:
+    index:
+      title: Clientes
+    search:
+      search_word: "Resultado da busca por: %{word}"
+      search_count:
+        one: 1 cliente encontrado
+        other: "%{number} clientes encontrados"
