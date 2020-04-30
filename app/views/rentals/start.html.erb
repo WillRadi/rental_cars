@@ -1,0 +1,10 @@
+<h1>Iniciar Locação</h1>
+
+<h2><%= @rental.code %></h2>
+<h2><%= t(:category, scope: %i[activerecord attributes car_category], name: @rental.car_category.name) %></h2>
+
+<%= form_tag(start_rental_path) do %>
+  <%= label_tag :car_id, 'Carro' %>
+  <%= select_tag :car_id, options_from_collection_for_select(@available_cars, :id, :cemplete_identification) %>
+  <%= submit_tag 'Confirmar' %>
+<% end %>

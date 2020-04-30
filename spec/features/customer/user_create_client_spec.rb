@@ -13,7 +13,6 @@ feature 'User create a customer' do
     fill_in 'CPF', with: customer.document
     click_on 'Enviar'
 
-    expect(page).to have_content('Seu perfil')
     expect(page).to have_content(customer.name)
     expect(page).to have_content(customer.email)
     expect(page).to have_content(customer.document)

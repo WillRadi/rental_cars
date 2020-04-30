@@ -3,9 +3,9 @@
 <h3><%= t('.search_word', word: @word) %></h3>
 
 <p><%= t('.search_count', number: @customers.count, count: @customers.count) %></p>
-<% @customers.each do |c| %>
+<% @customers.each do |customer| %>
   <div>
-    <%= c.name %>
-    <%= c.email %>
+    <%= link_to customer.name, customer %>
+    <%= customer.email %>
   </div>
 <% end %>
