@@ -5,6 +5,7 @@ class Rental < ApplicationRecord
   validate :end_date_must_be_greater_than_start_date
   validate :start_date_is_not_past
   validate :end_date_is_not_past
+  enum status: { scheduled: 0, ongoing: 5 }
 
   before_create :create_code
 

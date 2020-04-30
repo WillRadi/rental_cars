@@ -7,7 +7,7 @@ class Car < ApplicationRecord
   validates :mileage, presence: true
   validates :mileage, numericality: { greater_than: 0, only_integer: true }
 
-  def cemplete_identification
+  def complete_identification
     "#{car_model.manufacturer.name} #{car_model.name} - Placa: #{license_plate} - Cor: #{color}"
   end
 end

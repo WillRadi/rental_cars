@@ -80,3 +80,5 @@ pt-BR:
       search_count:
         one: 1 cliente encontrado
         other: "%{number} clientes encontrados"
+  scheduled: Agendada
+  ongoing: Iniciada

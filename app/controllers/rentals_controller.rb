@@ -19,6 +19,10 @@ class RentalsController < ApplicationController
     end
   end
 
+  def show
+    @rental = Rental.find(params[:id])
+  end
+
   def search
     @rentals = Rental.where(code: params[:q])
     render :index
@@ -27,6 +31,15 @@ class RentalsController < ApplicationController
   def start
     @rental = Rental.find(params[:id])
     @available_cars = Car.where(car_model: @rental.car_category.car_models)
+  end
+
+  def confirm
+    @rental = Rental.find(params[:id])
+    @car = Car.find(params[:car_id])
+    byebug
+    @rental.ongoing!
+
+    redirect_to @rental
   end
 
   private

@@ -10,8 +10,9 @@ Rails.application.routes.draw do
     get 'search', on: :collection
   end
   resources :cars, only: [:index, :new, :create, :show]
-  resources :rentals, only: [:index, :new, :create] do
+  resources :rentals, only: [:index, :new, :create, :show] do
     get 'search', on: :collection
     get 'start', on: :member
+    post 'start', on: :member, to: 'rentals#confirm'
   end
 end

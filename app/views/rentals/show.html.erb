@@ -1,0 +1,9 @@
+<h1><%= @rental.customer.name %></h1>
+
+<h2>Locação <strong><%= @rental.code %></strong><h2>
+
+<p>Detalhes:</p>
+<dl>
+  <dt>Status </dt><dd><%= t(@rental.status) %></dd>
+  <dt>Vaículo </dt><dd><%= @car.complete_identification %></dd>
+</dl>
