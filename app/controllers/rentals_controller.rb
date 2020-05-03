@@ -36,9 +36,10 @@ class RentalsController < ApplicationController
   def confirm
     @rental = Rental.find(params[:id])
     @car = Car.find(params[:car_id])
-    byebug
-    @rental.ongoing!
 
+    @rental.ongoing!
+    @car.rented!
+    CarRental.create!(rental: @rental, car: @car, start_date: Time.zone.now, user: current_user, daily_rate: @rental.car_category.daily_rate, car_insurance: @rental.car_category.car_insurance, third_party_insurance: @rental.car_category.third_party_insurance)
     redirect_to @rental
   end
 

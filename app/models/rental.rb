@@ -1,6 +1,7 @@
 class Rental < ApplicationRecord
   belongs_to :customer
   belongs_to :car_category
+  has_one :car_rental
 
   validate :end_date_must_be_greater_than_start_date
   validate :start_date_is_not_past
