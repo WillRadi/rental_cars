@@ -1,10 +1,22 @@
 <h1><%= @rental.customer.name %></h1>
 
 <p>Detalhes:</p>
-<dl>
-  <dt>Locação </dt><dd><%= @rental.code %></dd>
-  <dt>Status </dt><dd><%= t(@rental.status) %></dd>
-  <dt>Horário da Retirada </dt><%= l(@rental.car_rental.start_date, format: :custom) %><dd></dd>
-  <dt>Usuário Responsável </dt><dd><%= @rental.car_rental.user.email %></dd>
-  <dt>Veículo </dt><dd><%= @rental.car_rental.car.complete_identification %></dd>
-</dl>
+<% if @rental.scheduled? %>
+  <dl>
+    <dt>Locação </dt><dd><%= @rental.code %></dd>
+    <dt>Status </dt><dd><%= t(@rental.status) %></dd>
+    <dt>Data de início </dt><dd><%= I18n.l @rental.start_date %></dd>
+    <dt>Data final </dt><dd><%= I18n.l @rental.end_date %></dd>
+    <dt>Cliente </dt><dd><%= @rental.customer.identification %></dd>
+    <dt>Categoria </dt><dd><%= @rental.car_category.name %></dd>
+  </dl>
+  <%= link_to 'Iniciar Locação', start_rental_path(@rental.id) %>
+<% else %>
+ <dl>
+    <dt>Locação </dt><dd><%= @rental.code %></dd>
+    <dt>Status </dt><dd><%= t(@rental.status) %></dd>
+    <dt>Horário da Retirada </dt><%= l(@rental.car_rental.start_date, format: :custom) %><dd></dd>
+    <dt>Usuário Responsável </dt><dd><%= @rental.car_rental.user.email %></dd>
+    <dt>Veículo </dt><dd><%= @rental.car_rental.car.complete_identification %></dd>
+  </dl>
+<% end %>

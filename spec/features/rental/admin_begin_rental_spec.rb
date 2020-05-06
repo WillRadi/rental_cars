@@ -89,4 +89,8 @@ feature 'Admin begin rental' do
     expect(page).to have_content 'Usuário Responsável test@test.com'
     expect(page).to have_content 'Veículo Fiat Mobi - Placa: ABC-1234 - Cor: Azul'
   end
+
+  xscenario 'and from rental view page' do
+
+  end
 end

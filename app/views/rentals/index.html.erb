@@ -14,7 +14,7 @@
 
 <% @rentals.each do |rental| %>
   <div>
-    <p><strong>Código</strong> <%= rental.code %></p>
+    <p><strong>Código</strong> <%= link_to rental.code, rental %></p>
     <p><strong>Data de início:</strong> <%= I18n.l rental.start_date %></p>
     <p><strong>Data final:</strong> <%= I18n.l rental.end_date %></p>
     <p><strong>Cliente:</strong> <%= rental.customer.identification %></p>
